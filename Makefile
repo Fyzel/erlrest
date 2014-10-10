@@ -1,11 +1,7 @@
-all:
-	erlc -o ebin/ src/tcp_reply.erl
-	erlc -o ebin/ src/tcp_listener.erl
-	erlc -o ebin/ src/rest_server_app.erl
-	erlc -o ebin/ src/route_handler.erl
-	erlc -o ebin/ src/http_parser.erl
-	erlc -o ebin/ src/battle_ship.erl
-	erlc -o ebin/ src/commands.erl
+PROJECT = rest_server
 
-clean:
-	rm -rf ebin/*.beam
+#to remove -Werror from defaults
+#TODO: cleanup code and get rid of it
+ERLC_OPTS ?= +debug_info +warn_export_all +warn_export_vars \
+	+warn_shadow_vars +warn_obsolete_guard # +bin_opt_info +warn_missing_spec
+include erlang.mk

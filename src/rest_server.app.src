@@ -1,0 +1,12 @@
+{application, rest_server, [
+       {description, "Rest server"},
+       {vsn, "1.0"},
+       {modules, ['battle_ship', 'commands', 'http_parser', 'rest_server_app', 'route_handler', 'tcp_listener', 'tcp_reply']},
+       {registered, []},
+       {applications, [
+               kernel,
+               stdlib
+       ]},
+       {mod, {rest_server_app, []}},
+       {env, []}
+]}.
